@@ -1,3 +1,2 @@
-export { default as client } from './apollo-client';
-
-export * from './sanity';
+export { default as SanityClient } from './client';
+export * from './client';
