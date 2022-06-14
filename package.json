@@ -9,6 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.8",
     "next": "latest",
     "react": "18.1.0",
     "react-dom": "18.1.0"
