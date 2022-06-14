@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.8",
+    "@sanity/image-url": "^1.0.1",
     "graphql": "^16.5.0",
     "next": "latest",
     "react": "18.1.0",
