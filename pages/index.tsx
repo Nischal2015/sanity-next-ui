@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 const Home: NextPage = () => {
   return (
-    <div className="min-h-screen py-2">
+    <div className="min-h-screen py-2 max-w-7xl mx-auto">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
