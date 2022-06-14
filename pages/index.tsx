@@ -4,6 +4,14 @@ import { Navbar } from '../components';
 import { Hero } from '../components';
 
 const Home: NextPage = () => {
+  // const GET_ALL_AUTHORS = gql`
+  //   query GetAllAuthors {
+  //     allAuthor {
+  //       name
+  //     }
+  //   }
+  // `;
+
   return (
     <div className="min-h-screen py-2 max-w-7xl mx-auto">
       <Head>
