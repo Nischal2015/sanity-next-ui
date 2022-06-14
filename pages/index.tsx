@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { Navbar } from '../components';
 
 const Home: NextPage = () => {
   return (
@@ -8,7 +9,8 @@ const Home: NextPage = () => {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>This is just the beginning of the project</div>
+
+      <Navbar />
     </div>
   );
 };
