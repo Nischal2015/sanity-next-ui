@@ -9,7 +9,6 @@ interface Props {
 }
 
 const Home: NextPage<Props> = ({ posts }) => {
-  console.log({ posts });
   return (
     <div className="min-h-screen py-2 max-w-7xl mx-auto">
       <Head>
