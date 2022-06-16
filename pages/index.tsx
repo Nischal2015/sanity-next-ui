@@ -1,11 +1,11 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
-import { Navbar, PostProps, Hero, Posts } from '../components';
+import { Navbar, PostsProps, Hero, Posts } from '../components';
 import { SanityClient } from '../libs';
 import { ALL_POSTS } from '../src/groq';
 
 interface Props {
-  posts: PostProps[];
+  posts: PostsProps[];
 }
 
 const Home: NextPage<Props> = ({ posts }) => {
@@ -25,7 +25,7 @@ const Home: NextPage<Props> = ({ posts }) => {
 
 export default Home;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const posts = await SanityClient.fetch(ALL_POSTS);
 
   return {

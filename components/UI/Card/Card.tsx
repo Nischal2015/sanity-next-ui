@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { urlFor } from '../../../libs';
-import { PostProps } from '../../Posts';
+import { PostsProps } from '../../Posts';
 
-const Card = ({ post }: { post: PostProps }) => {
+const Card = ({ post }: { post: PostsProps }) => {
   const { author, slug, description, mainImage, title } = post;
   return (
-    <Link href={`/posts/${slug.current}`}>
+    <Link href={`/post/${slug.current}`}>
       <div className="border border-gray-300 rounded-md group cursor-pointer overflow-hidden">
         <Image
           className="object-cover group-hover:scale-105 transition-all"
@@ -19,8 +19,8 @@ const Card = ({ post }: { post: PostProps }) => {
         />
         <div className="flex items-center justify-between gap-5 px-3 pt-4 pb-5">
           <div>
-            <p>{title}</p>
-            <p>
+            <p className="text-lg font-bold">{title}</p>
+            <p className="text-xs">
               {description} by {author.name}
             </p>
           </div>
