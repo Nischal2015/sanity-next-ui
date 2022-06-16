@@ -1,6 +1,12 @@
-export interface PostProps {
-  _createdAt: string;
+export interface PostSlugProps {
   _id: string;
+  slug: {
+    current: string;
+  };
+}
+
+export interface PostsProps extends PostSlugProps {
+  _createdAt: string;
   author: {
     image: {
       asset: {
@@ -14,9 +20,6 @@ export interface PostProps {
     asset: {
       _ref: string;
     };
-  };
-  slug: {
-    current: string;
   };
   title: string;
 }
