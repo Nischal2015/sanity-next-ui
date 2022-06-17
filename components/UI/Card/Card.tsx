@@ -13,7 +13,9 @@ const Card = ({ post }: { post: PostsProps }) => {
           src={urlFor(mainImage).url()}
           height="60"
           width="100%"
+          layout="responsive"
           alt="Blog Cover Image"
+          priority
         />
         <div className="flex items-center justify-between gap-5 px-3 pt-4 pb-5">
           <div>
