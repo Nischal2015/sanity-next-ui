@@ -1,7 +1,7 @@
 import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
-import { PostSlugProps, SinglePostProps } from '../../components';
+import { Form, PostSlugProps, SinglePostProps } from '../../components';
 import { SanityClient, urlFor } from '../../libs';
 import { POSTS_WITH_SLUG, SINGLE_POST } from '../../src/groq';
 
@@ -90,6 +90,9 @@ const Post: NextPage<PostProps> = ({ post }) => {
           <PortableText value={body} components={myPortableTextComponents} />
         </div>
       </article>
+
+      <hr className="max-w-2xl my-5 mx-auto border-yellow-500" />
+      <Form />
     </main>
   );
 };
