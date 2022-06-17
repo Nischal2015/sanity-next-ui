@@ -1,4 +1,4 @@
-import { PortableText } from '@portabletext/react';
+import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import { PostSlugProps, SinglePostProps } from '../../components';
@@ -9,25 +9,51 @@ interface PostProps {
   post: SinglePostProps;
 }
 
+interface PortableTextImageProps {
+  value: {
+    asset: {
+      _ref: string;
+    };
+  };
+}
+
+interface PortableStringProps {
+  children: string;
+}
+
 const Post: NextPage<PostProps> = ({ post }) => {
   const { mainImage, title, description, author, body, _createdAt } = post;
 
   // This components provides the type for image in portable text format
   const myPortableTextComponents = {
     types: {
-      image: ({ value }) => {
-        return (
+      image: ({ value }: PortableTextImageProps) => (
+        <div className="mb-8 mt-2">
           <Image
             src={urlFor(value).url()}
             height="60"
             width="100%"
             layout="responsive"
             alt="Image in blog"
+            priority
           />
-        );
-      },
+        </div>
+      ),
     },
-  };
+    block: {
+      normal: ({ children }: PortableStringProps) => (
+        <p className="mb-3 text-gray-600 text-lg leading-7">{children}</p>
+      ),
+      h2: ({ children }: PortableStringProps) => (
+        <h2 className="text-2xl mb-2 font-semibold">{children}</h2>
+      ),
+    },
+    marks: {
+      strong: ({ children }: PortableStringProps) => (
+        <strong className="text-gray-700">{children}</strong>
+      ),
+    },
+  } as Partial<PortableTextReactComponents>;
 
   return (
     <main>
@@ -60,7 +86,7 @@ const Post: NextPage<PostProps> = ({ post }) => {
             </span>
           </p>
         </div>
-        <div>
+        <div className="mt-5">
           <PortableText value={body} components={myPortableTextComponents} />
         </div>
       </article>
