@@ -1,3 +1,4 @@
+import { TypedObject } from '@portabletext/types';
 export interface PostSlugProps {
   _id: string;
   slug: {
@@ -22,4 +23,8 @@ export interface PostsProps extends PostSlugProps {
     };
   };
   title: string;
+}
+
+export interface SinglePostProps extends PostsProps {
+  body: TypedObject | TypedObject[];
 }
