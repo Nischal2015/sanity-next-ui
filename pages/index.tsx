@@ -10,7 +10,7 @@ interface Props {
 
 const Home: NextPage<Props> = ({ posts }) => {
   return (
-    <div className="min-h-screen py-2 max-w-7xl mx-auto">
+    <div className="min-h-screen pb-2 max-w-7xl mx-auto">
       <Head>
         <title>Medium 2.0</title>
         <link rel="icon" href="/favicon.ico" />
