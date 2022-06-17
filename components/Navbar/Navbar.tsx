@@ -3,7 +3,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <nav className="flex items-center flex-row py-4">
+    <nav className="flex items-center flex-row py-4 max-w-7xl mx-auto">
       <div className="flex items-center gap-5">
         <Link href="/">
           {/* eslint-disable-next-line @next/next/no-img-element */}
