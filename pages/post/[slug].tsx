@@ -57,7 +57,7 @@ const Post: NextPage<PostProps> = ({ post }) => {
 
   return (
     <main>
-      <div className="w-full h-52 relative">
+      <div className="w-full h-52 relative mt-16">
         <Image
           src={urlFor(mainImage).url()}
           layout="fill"
