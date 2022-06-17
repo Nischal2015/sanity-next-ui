@@ -32,6 +32,7 @@ export const SINGLE_POST = `
     description,
     mainImage,
     slug,
+    body,
     _createdAt
   }
 `;

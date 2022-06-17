@@ -1,15 +1,34 @@
+import { PortableText } from '@portabletext/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
-import { PostSlugProps, PostsProps } from '../../components';
+import { PostSlugProps, SinglePostProps } from '../../components';
 import { SanityClient, urlFor } from '../../libs';
 import { POSTS_WITH_SLUG, SINGLE_POST } from '../../src/groq';
 
 interface PostProps {
-  post: PostsProps;
+  post: SinglePostProps;
 }
 
 const Post: NextPage<PostProps> = ({ post }) => {
-  const { mainImage, title, description, author, _createdAt } = post;
+  const { mainImage, title, description, author, body, _createdAt } = post;
+
+  // This components provides the type for image in portable text format
+  const myPortableTextComponents = {
+    types: {
+      image: ({ value }) => {
+        return (
+          <Image
+            src={urlFor(value).url()}
+            height="60"
+            width="100%"
+            layout="responsive"
+            alt="Image in blog"
+          />
+        );
+      },
+    },
+  };
+
   return (
     <main>
       <div className="w-full h-52 relative">
@@ -41,6 +60,9 @@ const Post: NextPage<PostProps> = ({ post }) => {
             </span>
           </p>
         </div>
+        <div>
+          <PortableText value={body} components={myPortableTextComponents} />
+        </div>
       </article>
     </main>
   );
@@ -61,7 +83,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const post: PostsProps[] = await SanityClient.fetch(SINGLE_POST, {
+  const post: SinglePostProps[] = await SanityClient.fetch(SINGLE_POST, {
     slug: params?.slug,
   });
 
