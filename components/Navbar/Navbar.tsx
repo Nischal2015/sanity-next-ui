@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -6,12 +7,18 @@ const Header = () => {
     <nav className="flex items-center flex-row py-4 max-w-7xl mx-auto">
       <div className="flex items-center gap-5">
         <Link href="/">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://links.papareact.com/yvf"
-            className="w-44 object-contain cursor-pointer"
-            alt="Medium Logo"
-          />
+          <div className="w-44">
+            <Image
+              src="https://links.papareact.com/yvf"
+              className="cursor-pointer"
+              layout="responsive"
+              width="100%"
+              height="25"
+              objectFit="contain"
+              alt="Medium Logo"
+              priority
+            />
+          </div>
         </Link>
         <div className="hidden md:inline-flex items-center justify-center gap-5 cursor-pointer">
           <h3>About</h3>
