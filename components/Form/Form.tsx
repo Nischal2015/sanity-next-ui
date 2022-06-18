@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 
-interface IFormInputs {
+export interface IFormInputs {
   id: string;
   name: string;
   email: string;
@@ -14,7 +14,16 @@ const Form = ({ id }: { id: string }) => {
     formState: { errors },
   } = useForm<IFormInputs>();
 
-  const onSubmit: SubmitHandler<IFormInputs> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<IFormInputs> = async (data) => {
+    try {
+      await fetch('/api/createComment', {
+        method: 'POST',
+        body: JSON.stringify(data),
+      });
+    } catch (errors) {
+      console.error(errors);
+    }
+  };
 
   return (
     <form
