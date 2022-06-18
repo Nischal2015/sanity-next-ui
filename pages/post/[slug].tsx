@@ -22,7 +22,7 @@ interface PortableStringProps {
 }
 
 const Post: NextPage<PostProps> = ({ post }) => {
-  const { mainImage, title, description, author, body, _createdAt } = post;
+  const { _id, mainImage, title, description, author, body, _createdAt } = post;
 
   // This components provides the type for image in portable text format
   const myPortableTextComponents = {
@@ -92,7 +92,7 @@ const Post: NextPage<PostProps> = ({ post }) => {
       </article>
 
       <hr className="max-w-2xl my-5 mx-auto border-yellow-500" />
-      <Form />
+      <Form id={_id} />
     </main>
   );
 };
