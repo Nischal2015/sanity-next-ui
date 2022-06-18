@@ -4,7 +4,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <nav className="flex fixed items-center w-full inset-0 bg-white z-50 h-16 sm:px-2 md:px-28 lg:px-40 xl:px-60 shadow">
+    <nav className="flex fixed items-center w-full inset-0 bg-white z-50 h-16 md:px-16 lg:px-32 shadow">
       <div className="flex items-center gap-5">
         <Link href="/">
           <div className="w-44">
