@@ -1,7 +1,14 @@
 import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
-import { Form, PostSlugProps, SinglePostProps } from '../../components';
+import { useState } from 'react';
+import {
+  CommentList,
+  CommentSubmit,
+  Form,
+  PostSlugProps,
+  SinglePostProps,
+} from '../../components';
 import { SanityClient, urlFor } from '../../libs';
 import { POSTS_WITH_SLUG, SINGLE_POST } from '../../src/groq';
 
@@ -22,7 +29,17 @@ interface PortableStringProps {
 }
 
 const Post: NextPage<PostProps> = ({ post }) => {
-  const { _id, mainImage, title, description, author, body, _createdAt } = post;
+  const {
+    _id,
+    mainImage,
+    title,
+    description,
+    author,
+    body,
+    _createdAt,
+    comments,
+  } = post;
+  const [submitSuccessful, setSubmitSuccessful] = useState(false);
 
   // This components provides the type for image in portable text format
   const myPortableTextComponents = {
@@ -92,7 +109,12 @@ const Post: NextPage<PostProps> = ({ post }) => {
       </article>
 
       <hr className="max-w-2xl my-5 mx-auto border-yellow-500" />
-      <Form id={_id} />
+      {submitSuccessful ? (
+        <CommentSubmit />
+      ) : (
+        <Form id={_id} setSubmitSuccessful={setSubmitSuccessful} />
+      )}
+      <CommentList comments={comments} />
     </main>
   );
 };
