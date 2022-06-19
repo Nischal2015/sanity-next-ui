@@ -1,5 +1,8 @@
 export { default as Card } from './UI';
 
+export { default as CommentList } from './Comment';
+export * from './Comment';
+
 export { default as Form } from './Form';
 export * from './Form';
 

@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 export interface IFormInputs {
@@ -7,7 +8,13 @@ export interface IFormInputs {
   comment: string;
 }
 
-const Form = ({ id }: { id: string }) => {
+const Form = ({
+  id,
+  setSubmitSuccessful,
+}: {
+  id: string;
+  setSubmitSuccessful: Dispatch<SetStateAction<boolean>>;
+}) => {
   const {
     register,
     handleSubmit,
@@ -20,8 +27,10 @@ const Form = ({ id }: { id: string }) => {
         method: 'POST',
         body: JSON.stringify(data),
       });
+      setSubmitSuccessful(true);
     } catch (errors) {
       console.error(errors);
+      setSubmitSuccessful(false);
     }
   };
 
