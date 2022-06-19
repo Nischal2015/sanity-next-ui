@@ -1,12 +1,49 @@
-# Next.js + Tailwind CSS Example
+# Medium 2.0 with Sanity CMS
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+## Description
+
+This a Medium 2.0 build from youtube. This simple web apps uses [Next.js](https://nextjs.org/) for building the frontend and [Sanity](https://www.sanity.io/) as CMS. Styling is carried out using [Tailwind CSS](https://tailwindcss.com/).
+
+<p style="display:flex;flex-items:center;flex-wrap:wrap;justify-content:center;gap: 6px;">
+    <img alt="Next.js" src="https://img.shields.io/badge/Next-black?style=flat-squared&logo=next.js&logoColor=white" />
+    <img alt="Tailwind CSS" src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=flat-squared&logo=tailwind-css&logoColor=white" />   
+</p>
+
+You can access more badges and their purposes at [shields.io](https://shields.io/)
+
+![Main page](https://github.com/Nischal2015/sanity-next-ui/blob/master/public/main.png?raw=true)
+
+![Blog Page](https://github.com/Nischal2015/sanity-next-ui/blob/master/public/single_post.png?raw=true)
+
+## Table of Contents
+
+- [Installation](#installation-and-usage)
+- [Deployment](#deploy-your-own)
+- [Backend](#backend)
+
+## Installation and Usage
+
+Make sure you have [Node.js](https://nodejs.org/en/) installed on your device. Recommended Node version >= 16.x.x
+
+To install dependencies:
+
+```bash
+npm install
+# or
+yarn
+```
+
+Once all dependencies are installed, start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
 
 ## Deploy your own
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+This app was deployed using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example). You can find my deployment at [Medium 2.0](https://sanity-next-ui.vercel.app/)
 
 ## Backend
 
