@@ -25,6 +25,23 @@ export interface PostsProps extends PostSlugProps {
   title: string;
 }
 
+export interface CommentProps {
+  _createdAt: string;
+  _id: string;
+  rev: string;
+  _type: string;
+  _updatedAt: string;
+  approved: boolean;
+  comment: string;
+  email: string;
+  name: string;
+  post: {
+    _ref: string;
+    _type: string;
+  };
+}
+
 export interface SinglePostProps extends PostsProps {
   body: TypedObject | TypedObject[];
+  comments: CommentProps[];
 }
