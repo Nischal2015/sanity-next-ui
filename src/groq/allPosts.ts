@@ -29,6 +29,7 @@ export const SINGLE_POST = `
       name,
       image
     },
+    'comments': *[_type == "comment" && post._ref == ^._id && approved == true],
     description,
     mainImage,
     slug,
